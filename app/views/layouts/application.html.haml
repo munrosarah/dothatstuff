@@ -6,5 +6,8 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    DoThatStuff
-    = yield
+    #container 
+      = image_tag "dothatstuff.png", alt: "DoThatStuff", id: "logo"
+      #mainContentContainer
+        = render partial: 'shared/flash_messages'
+        = yield

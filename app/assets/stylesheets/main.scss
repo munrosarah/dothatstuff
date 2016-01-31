@@ -1,0 +1,44 @@
+$exteriorBackground: #357292;
+
+body {
+  background: $exteriorBackground;
+}
+
+#container {
+  font-size: 18px;
+  margin: 20px auto;
+  width: 900px;
+}
+
+#mainContentContainer {
+  background: white;
+  border-radius: 15px;
+  display: block;
+  padding: 20px;
+  width: 100%;
+}
+
+#logo {
+  display: block;
+  margin: auto;
+}
+
+#flashContainer {
+  font-size: 14px;
+  margin: auto;
+  padding-bottom: 20px;
+  width: 500px;
+}
+
+.flashError {
+  background: #E8CACA;
+  color: #BF0505;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.flashNotice {
+  background: #B1DFBD;
+  color: #0B6121;
+  padding: 10px;
+}

@@ -1,0 +1,7 @@
+#flashContainer
+  - if flash[:error]
+    .flashError
+      = flash[:html_safe] ? flash[:error].html_safe : flash[:error]
+  - if flash[:notice]
+    .flashNotice
+      = flash[:html_safe] ? flash[:notice].html_safe : flash[:notice]

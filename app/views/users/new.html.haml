@@ -1,0 +1,8 @@
+%h1
+  Sign Up
+= form_for @user, url: { action: :create } do |f|
+  Please enter your #{ content_tag(:strong, "email") } address:
+  = f.text_field :email
+  = f.submit "Sign Up"
+
+
