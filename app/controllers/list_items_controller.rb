@@ -10,12 +10,7 @@ class ListItemsController < ApplicationController
 
   def toggle_completed
     if list_item = ListItem.find_by(id: params[:id])
-      list_item.completed = if params[:completed].present? 
-        params[:completed]
-      else
-        !list_item.completed
-      end
-      list_item.save
+      list_item.toggle_completed!(params[:completed])
       render json: { completed: list_item.completed }, status: :ok        
     else
       render json: {}, status: :not_found

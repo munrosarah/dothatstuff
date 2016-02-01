@@ -1,0 +1,16 @@
+%h1
+  Sign In
+#sessionForm
+  = form_for :session, url: sign_in_path do |f|
+    %ul
+      %li
+        = f.label :email 
+        = f.text_field :email
+      %li
+        = f.label :password
+        = f.password_field :password
+      %li
+        = f.submit "Sign In", class: 'rightButton'
+      %li   
+        Or 
+        = link_to "sign up now!", users_new_path

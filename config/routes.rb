@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   root 'application#index'
 
-  namespace :authentication do
-    get 'sign_in', to: :sign_in
-  end
+  get    'sign_in', to: 'sessions#new'
+  post   'sign_in', to: 'sessions#create'
+  delete 'sign_out', to: 'sessions#destroy'
 
   namespace :users do
     get 'new', to: :new
     post 'create', to: :create
+    get '/:id/list', to: :list, as: :list
   end
 
   namespace :lists do

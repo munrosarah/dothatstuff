@@ -14,9 +14,18 @@ class UsersController < ApplicationController
     end   
   end
 
+  def list
+    @list = List.find_by(user_id: params[:id])
+    if @list.blank?
+      redirect_to lists_new_path(user_id: params[:id])
+    else
+      redirect_to lists_path(@list)
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end

@@ -1,8 +1,16 @@
 %h1
   Sign Up
-= form_for @user, url: { action: :create } do |f|
-  Please enter your #{ content_tag(:strong, "email") } address:
-  = f.text_field :email
-  = f.submit "Sign Up"
-
-
+#sessionForm
+  = form_for @user, url: users_create_path do |f|
+    %ul
+      %li
+        = f.label :email 
+        = f.text_field :email
+      %li
+        = f.label :password
+        = f.password_field :password
+      %li
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      %li  
+        = f.submit "Sign Up", class: 'rightButton'

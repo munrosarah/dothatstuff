@@ -30,6 +30,31 @@ body {
   width: 500px;
 }
 
+#sessionForm {
+  display: inline-block;
+
+  .rightButton {
+    float: right;
+  }
+
+  label {
+    float: left;
+    font-weight: bold;
+    padding-right: 20px;
+    text-align: right;
+    width: 200px;
+  }
+
+  li {
+    padding: 10px 0px;
+  }
+
+  ul {
+    list-style-type: none;  
+  } 
+}
+
+
 .flashError {
   background: #E8CACA;
   color: #BF0505;
