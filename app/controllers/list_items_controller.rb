@@ -8,14 +8,18 @@ class ListItemsController < ApplicationController
     redirect_to lists_path(@list_item.list_id)   
   end
 
-  def check_off
-
-    flash.now[:notice] = 'PLACE HOLDER FOR CHECK_OFF ' + params[:id]
-    render json: { completed: true }, status: :ok
-  end
-
-  def uncheck
-    flash.now[:notice] = 'PLACE HOLDER FOR UNCHECK'
+  def toggle_completed
+    if list_item = ListItem.find_by(id: params[:id])
+      list_item.completed = if params[:completed].present? 
+        params[:completed]
+      else
+        !list_item.completed
+      end
+      list_item.save
+      render json: { completed: list_item.completed }, status: :ok        
+    else
+      render json: {}, status: :not_found
+    end
   end
 
   private

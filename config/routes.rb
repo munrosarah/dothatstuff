@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   namespace :list_items do
     post 'create', to: :create
-    post '/:id/check_off', to: :check_off
-    post '/:id/uncheck', to: :uncheck
+    post '/:id/toggle_completed', to: :toggle_completed
   end
 end
