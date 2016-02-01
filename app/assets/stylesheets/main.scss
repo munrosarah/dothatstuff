@@ -42,3 +42,19 @@ body {
   color: #0B6121;
   padding: 10px;
 }
+
+.toDoList {
+  ul {
+    list-style-type: none;
+    padding: 0px;
+  }
+
+  .done {
+    color: gray;
+    text-decoration: line-through;
+  }
+}
+
+.toDoItem {
+  display: inline-block;
+}

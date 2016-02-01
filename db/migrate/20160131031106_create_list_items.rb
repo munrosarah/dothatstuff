@@ -4,10 +4,13 @@ class CreateListItems < ActiveRecord::Migration
       t.string :description, null: false
       t.boolean :completed, default: false
 
-      t.integer :user_id, index: true, null: false
-      t.integer :list_id, index: true, null: false
+      t.integer :user_id, null: false
+      t.integer :list_id, null: false
 
       t.timestamps null: false
     end
+
+    add_index :list_items, :user_id, unique: false
+    add_index :list_items, :list_id, unique: false
   end
 end
