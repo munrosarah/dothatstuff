@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   EMAIL_REGEX = %r{\A[a-z0-9\.\-%_&+]+@([a-z0-9\-]+\.)+[a-z]+\z}i
 
+  has_one :list
+  
   before_save { self.email = email.downcase }
 
   validates :email, presence: true, length: { maximum: 255 }, 

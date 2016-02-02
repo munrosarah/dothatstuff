@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'application#index'
 
-  get    'sign_in', to: 'sessions#new'
-  post   'sign_in', to: 'sessions#create'
-  delete 'sign_out', to: 'sessions#destroy'
+  get    'login', to: 'sessions#new'
+  post   'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 
   namespace :users do
     get 'new', to: :new

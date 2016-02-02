@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
 
   def index
     # TODO: check to see if the user is already signed in
-    redirect_to sign_in_path
+    redirect_to login_path
   end
 end

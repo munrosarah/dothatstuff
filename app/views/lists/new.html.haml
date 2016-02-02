@@ -3,7 +3,6 @@
 = form_for @list, url: { action: :create } do |f|
   What would you like to call your first (and right now only) list?
   = f.text_field :title
-  = f.hidden_field :user_id, value: @user_id
   = f.submit "Create List"
 
 
