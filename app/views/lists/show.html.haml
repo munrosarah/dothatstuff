@@ -3,7 +3,7 @@
 
 .toDoList
   %ul
-    - @list.list_items.each do |item|
+    - @list_items.each do |item|
       %li
         = check_box_tag("checkbox_list_item_#{item.id}", item.id, 
                         item.completed, class: 'toDoItemCheckbox')
@@ -15,3 +15,6 @@
   = f.text_field :description
   = f.hidden_field :list_id, value: @list.id
   = f.submit "Add Item"
+
+.hideItems
+  = button_to "Hide Checked Items", lists_hide_completed_items_path(id: @list.id)

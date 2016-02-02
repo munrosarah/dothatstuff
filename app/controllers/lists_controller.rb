@@ -4,6 +4,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find_by(id: params[:id])
+    @list_items = @list.list_items.visible
   end
 
   def new
@@ -25,6 +26,15 @@ class ListsController < ApplicationController
       flash[:error] = @list.errors.full_messages.join("\n")
       redirect_to lists_new_path, user_id: current_user.id
     end   
+  end
+
+  def hide_completed_items
+    items_to_hide = ListItem.where(list_id: params[:id], completed: true)
+                            .visible
+                            
+    items_to_hide.update_all(hidden: true)
+
+    redirect_to lists_path(params[:id])
   end
 
   private

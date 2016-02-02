@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201171402) do
+ActiveRecord::Schema.define(version: 20160202004813) do
 
   create_table "list_items", force: :cascade do |t|
     t.string   "description",                 null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160201171402) do
     t.integer  "list_id",                     null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.boolean  "hidden",      default: false
   end
 
   add_index "list_items", ["list_id"], name: "index_list_items_on_list_id"

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get 'new', to: :new
     get '/:id', to: :show
     post 'create', to: :create
+    post 'hide_completed_items', to: :hide_completed_items
   end
 
   namespace :list_items do
