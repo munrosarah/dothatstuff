@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def index
-    # TODO: check to see if the user is already signed in
     redirect_to login_path
   end
 end

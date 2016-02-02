@@ -7,7 +7,7 @@ class ListItemsController < ApplicationController
     @list_item.user_id = current_user.id
 
     if !@list_item.save
-      flash[:error] = @list_item.errors.full_messages.join("\n")
+      flash[:error] = @list_item.errors.full_messages
     end
     redirect_to lists_path(@list_item.list_id)   
   end

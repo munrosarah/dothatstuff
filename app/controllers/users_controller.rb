@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You have successfully signed up!"
       redirect_to lists_new_path( user_id: @user.id )
     else
-      flash[:error] = @user.errors.full_messages.join("\n")
+      flash[:error] = @user.errors.full_messages
       redirect_to users_new_path
     end   
   end

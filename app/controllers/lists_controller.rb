@@ -24,7 +24,7 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to lists_path(@list)
     else
-      flash[:error] = @list.errors.full_messages.join("\n")
+      flash[:error] = @list.errors.full_messages
       redirect_to lists_new_path, user_id: current_user.id
     end   
   end
