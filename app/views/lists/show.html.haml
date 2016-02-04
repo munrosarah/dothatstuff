@@ -1,9 +1,4 @@
 = react_component('ListShow', render(template: 'lists/show.json.jbuilder'))
 
-= form_for :list_item, url: list_items_create_path do |f|
-  = f.text_field :description
-  = f.hidden_field :list_id, value: @list.id
-  = f.submit "Add Item"
-
 .hideItems
   = button_to "Hide Checked Items", lists_hide_completed_items_path(id: @list.id)
