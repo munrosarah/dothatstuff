@@ -1,15 +1,4 @@
-%h1
-  = @list.title
-
-.toDoList
-  %ul
-    - @list_items.each do |item|
-      %li
-        = check_box_tag("checkbox_list_item_#{item.id}", item.id, 
-                        item.completed, class: 'toDoItemCheckbox')
-        .toDoItem{ class: (item.completed ? 'done' : 'todo'), 
-                   id: "todo_item_#{item.id}" }
-          = item.description
+= react_component('ListShow', render(template: 'lists/show.json.jbuilder'))
 
 = form_for :list_item, url: list_items_create_path do |f|
   = f.text_field :description

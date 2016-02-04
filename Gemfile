@@ -12,6 +12,7 @@ gem 'sdoc',          '~> 0.4.0', group: :doc
 
 gem 'haml'
 gem 'passenger'
+gem 'react-rails',   '~> 1.5.0'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
