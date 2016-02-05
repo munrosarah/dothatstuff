@@ -1,1 +1,1 @@
-json.extract!(list_item, :id, :description, :completed, :hidden)
+json.extract!(list_item, :id, :description, :completed)

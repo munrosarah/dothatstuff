@@ -1,10 +1,10 @@
 class ListsController < ApplicationController
   before_action :user_logged_in
-  before_action :check_authorization, only: :show
+  before_action :check_authorization, only: [:show, :toggle_hidden]
 
   def show
     @list = List.find_by(id: params[:id])
-    @list_items = @list.list_items.visible
+    @list_items = @list.list_items
   end
 
   def new
@@ -29,13 +29,9 @@ class ListsController < ApplicationController
     end   
   end
 
-  def hide_completed_items
-    items_to_hide = ListItem.where(list_id: params[:id], completed: true)
-                            .visible
-                            
-    items_to_hide.update_all(hidden: true)
-
-    redirect_to lists_path(params[:id])
+  def toggle_hidden
+    @list.toggle_hidden!(params[:hide_completed])
+    render json: { hide_completed: @list.hide_completed }, status: :ok        
   end
 
   private

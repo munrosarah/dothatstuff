@@ -1,5 +1,5 @@
 json.list do
-  json.extract!(@list, :id, :title)
+  json.extract!(@list, :id, :title, :hide_completed)
 end
 
 json.list_items @list_items do |list_item|

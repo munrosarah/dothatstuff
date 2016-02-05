@@ -4,9 +4,12 @@ var ListItemNew = React.createClass({
     $.ajax({
       url: '/list_items/create',
       type: 'POST',
-      data: { "list_item": 
-              { "list_id": this.props.list_id, 
-                "description": description }
+      data: { 
+              "list_item": 
+                { 
+                  "list_id": this.props.list_id, 
+                  "description": description 
+                }
             },
     });
   },

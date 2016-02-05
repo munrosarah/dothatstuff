@@ -1,6 +1,6 @@
 var ListItem = React.createClass({
   getInitialState(){
-    return {completed: this.props.list_item.completed};
+    return { completed: this.props.list_item.completed };
   },
 
   onChange: function () {
@@ -17,15 +17,23 @@ var ListItem = React.createClass({
   },
 
   render: function() {
-    var todoClass = this.state.completed ? "done" : "todo"
+    var todoClass = this.state.completed ? "done" : "todo";
+    var todoItem;
+    
+    if(!this.props.hideCompleted || !this.state.completed){
+      todoItem = (<li className={todoClass}>
+                    <input
+                      type="checkbox"
+                      checked={this.state.completed}
+                      onChange={this.onChange} />
+                    {this.props.list_item.description}
+                  </li>);
+    } 
+
     return (
-      <li className={todoClass}>
-          <input
-            type="checkbox"
-            checked={this.state.completed}
-            onChange={this.onChange} />
-          {this.props.list_item.description}
-      </li>
+      <div>
+        {todoItem}   
+      </div>
     );
   }
 });
