@@ -17,7 +17,7 @@ var ListItem = React.createClass({
   },
 
   render: function() {
-    var todoClass = this.state.completed ? "done" : "todo";
+    var todoClass = this.state.completed ? 'done' : 'todo';
     var todoItem;
     
     if(!this.props.hideCompleted || !this.state.completed){
@@ -26,7 +26,9 @@ var ListItem = React.createClass({
                       type="checkbox"
                       checked={this.state.completed}
                       onChange={this.onChange} />
-                    {this.props.list_item.description}
+                    <div className="to-do-item">
+                      {this.props.list_item.description}
+                    </div>
                   </li>);
     } 
 

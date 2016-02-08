@@ -34,6 +34,12 @@ class ListsController < ApplicationController
     render json: { hide_completed: @list.hide_completed }, status: :ok        
   end
 
+  def list_items
+    list = List.find_by(id: params[:id])
+    list_items = list.list_items  
+    render json: { list_items: list_items }
+  end
+
   private
 
   def list_params

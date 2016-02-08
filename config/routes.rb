@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   namespace :lists do
     get 'new', action: :new
     get '/:id', action: :show
+    get '/:id/list_items', action: :list_items
     post 'create', action: :create
     post '/:id/toggle_hidden', action: :toggle_hidden
   end

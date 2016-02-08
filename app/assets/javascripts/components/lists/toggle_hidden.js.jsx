@@ -9,9 +9,7 @@ var ToggleHidden = React.createClass({
     buttonText = buttonText + " Completed Items";
     
     return (
-      <div>
-        <input type="button" value={buttonText} onClick={this.onClick} /> 
-      </div>
+      <input type="button" value={buttonText} onClick={this.onClick} className="btn btn-primary"/> 
     );
   }
 });

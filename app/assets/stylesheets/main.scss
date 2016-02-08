@@ -1,3 +1,5 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
 $exteriorBackground: #357292;
 
 body {
@@ -65,25 +67,28 @@ body {
   } 
 }
 
-.flashError {
-  background: #E8CACA;
-  color: #BF0505;
-  font-weight: bold;
-  padding: 10px;
+.list-item-field {
+  display: inline-block;
+  margin-right: 20px;
+  width: 300px;
 }
 
-.flashNotice {
-  background: #B1DFBD;
-  color: #0B6121;
-  padding: 10px;
+.list-title {
+  display: inline-block;
+  max-width: 600px;
 }
 
-.toDoItem {
+.list-title-bar {
+  max-width: 100%;
+}
+
+.to-do-item {
   display: inline-block;
   max-width: 95%;
+  padding: 5px;
 }
 
-.toDoList {
+.to-do-list {
   ul {
     list-style-type: none;
     padding: 0px;
@@ -93,5 +98,9 @@ body {
     color: gray;
     text-decoration: line-through;
   }
+}
+
+.toggle-hidden-button {
+  float: right;
 }
 

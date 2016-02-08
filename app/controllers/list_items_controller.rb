@@ -7,15 +7,17 @@ class ListItemsController < ApplicationController
     @list_item.user_id = current_user.id
 
     if !@list_item.save
-      flash[:error] = @list_item.errors.full_messages
+      response.headers['X-FlashMessages'] = @list_item.errors.full_messages
+      render json: {} , status: :bad_request
+      return
     end
-    redirect_to lists_path(@list_item.list_id)   
+    render json: { list_item: @list_item }, status: :ok
   end
 
   def toggle_completed
     if list_item = ListItem.find_by(id: params[:id])
       list_item.toggle_completed!(params[:completed])
-      render json: { completed: list_item.completed }, status: :ok        
+      render json: { completed: list_item.completed }, status: :ok     
     else
       render json: {}, status: :not_found
     end
