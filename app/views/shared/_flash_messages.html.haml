@@ -1,12 +1,12 @@
 #flashContainer
   - if flash[:error]
-    .flashError
+    #flashError{ class: 'alert alert-danger' }
       - if flash[:error].is_a?(Array)
         = safe_join(flash[:error], "<br>".html_safe)
       - else
         = flash[:error]
   - if flash[:notice]
-    .flashNotice
+    #flashNotice{ class: 'alert alert-success'}
       - if flash[:notice].is_a?(Array)
         = safe_join(flash[:notice], "<br>".html_safe)
       - else

@@ -27,11 +27,13 @@ var ListShow = React.createClass({
       type: 'POST',
       data: { "list_item": listItem },
       cache: false,
+      complete: function(response) {
+        var flashMessageEvent = 
+          new CustomEvent("flashMessages",  { detail: { response: response }});
+        dispatchEvent(flashMessageEvent);
+      }.bind(this),
       success: function(response) {
         this.loadListItems();
-      }.bind(this),
-      error: function(response) {
-        console.log(response);
       }.bind(this)
     });
   },

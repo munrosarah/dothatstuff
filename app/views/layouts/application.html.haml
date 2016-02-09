@@ -13,4 +13,6 @@
       #mainContentContainer
         - unless flash.empty?
           = render partial: 'shared/flash_messages'
+        #flashMessages
+          = react_component('FlashMessages')
         = yield

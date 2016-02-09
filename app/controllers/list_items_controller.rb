@@ -7,7 +7,8 @@ class ListItemsController < ApplicationController
     @list_item.user_id = current_user.id
 
     if !@list_item.save
-      response.headers['X-FlashMessages'] = @list_item.errors.full_messages
+      response.headers['X-FlashMessages'] = 
+        { errors: @list_item.errors.full_messages}.to_json
       render json: {} , status: :bad_request
       return
     end
